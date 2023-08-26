@@ -8,6 +8,12 @@ export default defineConfig({
     publicFolder: "public",
     outputFolder: "admin",
   },
+  media: {
+    tina: {
+      publicFolder: "public",
+      mediaRoot: "/uploads",
+    },
+  },
   schema: {
     collections: [
       {
@@ -20,6 +26,25 @@ export default defineConfig({
             label: "Title",
             name: "title",
             type: "string",
+          },
+          {
+            label: "Blocks",
+            name: "blocks",
+            type: "object",
+            list: true,
+            templates: [
+              {
+                name: "hero",
+                label: "Hero",
+                fields: [
+                  {
+                    label: "Hero text",
+                    name: "hero_text",
+                    type: "rich-text",
+                  },
+                ],
+              },
+            ],
           },
         ],
       },
